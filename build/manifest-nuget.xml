@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id></id>
+    <id>Our.Umbraco.Contentment</id>
     <version>0.0.0</version>
-    <title></title>
-    <authors></authors>
+    <title>Our.Umbraco.Contentment</title>
+    <authors>Lee Kelleher</authors>
     <owners></owners>
-    <projectUrl></projectUrl>
-    <iconUrl></iconUrl>
-    <requireLicenseAcceptance></requireLicenseAcceptance>
-    <description></description>
+    <projectUrl>https://github.com/leekelleher/umbraco-contentment</projectUrl>
+    <iconUrl>https://github.com/leekelleher/umbraco-contentment/blob/master/docs/assets/img/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A boxful of happiness</description>
     <summary></summary>
     <copyright></copyright>
-    <licenseUrl></licenseUrl>
+    <license type="expression">	MPL-2.0</license>
     <language></language>
     <tags></tags>
     <dependencies>
-      <dependency id="UmbracoCms.Core" version="0.0.0" />
-      <dependency id="UmbracoCms.Web" version="0.0.0" />
+      <group targetFramework="net472">
+        <dependency id="UmbracoCms.Core" version="0.0.0" />
+        <dependency id="UmbracoCms.Web" version="0.0.0" />
+      </group>
     </dependencies>
   </metadata>
+  <files>
+    <file src="..\assets\bin\Umbraco.Community.Contentment.dll" target="lib\net472" />
+    <file src="..\assets\bin\Umbraco.Community.Contentment.pdb" target="lib\net472" />
+    <file src="..\assets\App_Plugins\**\*" target="content\App_Plugins" />
+  </files>
 </package>

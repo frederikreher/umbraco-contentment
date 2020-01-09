@@ -129,8 +129,19 @@ Compress-Archive -Path "${umbFolder}\*" -DestinationPath "${artifactsFolder}\Con
 
 # Populate the NuGet package manifest
 
+$nugetFolder = Join-Path -Path $buildFolder -ChildPath '__nuget';
+if (!(Test-Path -Path $nugetFolder)) {New-Item -Path $nugetFolder -Type Directory;}
 
 $nugetPackageManifest = Join-Path -Path $buildFolder -ChildPath 'manifest-nuget.xml';
+$nugetPackageXml = [xml](Get-Content $nugetPackageManifest);
 
+
+$nugetPackageXml.package.metadata.version = $version.ToString();
+
+$pluginFilesElement = $nugetPackageXml.CreateElement("files");
+
+$nugetPackageXml.Save("${nugetFolder}\package.nuspec");
+
+nuget pack "${nugetFolder}\package.nuspec" -OutputDirectory "${artifactsFolder}\"
 
 # Anything else?
