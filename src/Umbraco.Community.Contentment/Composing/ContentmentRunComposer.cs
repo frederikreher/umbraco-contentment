@@ -19,42 +19,42 @@ namespace Umbraco.Community.Contentment.Composing
                     .Append<ContentmentComponent>()
             ;
 
-#if !DEBUG
-            composition
-                .DataEditors()
-                    .Exclude<CardsDataEditor>()
-                    .Exclude<CascadingDropdownListDataEditor>()
-                    .Exclude<CheckboxDataEditor>()
-                    .Exclude<CheckboxListDataEditor>()
-                    .Exclude<CodeEditorDataEditor>()
-                    .Exclude<ConfigurationEditorDataEditor>()
-                    .Exclude<ContentBlocksDataEditor>()
-                    .Exclude<DataTableDataEditor>()
-                    .Exclude<DropdownListDataEditor>()
-                    .Exclude<ItemPickerDataEditor>()
-                    .Exclude<MacroPickerDataEditor>()
-                    .Exclude<NumberInputDataEditor>()
-                    .Exclude<RadioButtonListDataEditor>()
-                    .Exclude<TextInputDataEditor>()
-                    .Exclude<TogglesDataEditor>()
-            ;
+//#if !DEBUG
+//            composition
+//                .DataEditors()
+//                    .Exclude<CardsDataEditor>()
+//                    .Exclude<CascadingDropdownListDataEditor>()
+//                    .Exclude<CheckboxDataEditor>()
+//                    .Exclude<CheckboxListDataEditor>()
+//                    .Exclude<CodeEditorDataEditor>()
+//                    .Exclude<ConfigurationEditorDataEditor>()
+//                    .Exclude<ContentBlocksDataEditor>()
+//                    .Exclude<DataTableDataEditor>()
+//                    .Exclude<DropdownListDataEditor>()
+//                    .Exclude<ItemPickerDataEditor>()
+//                    .Exclude<MacroPickerDataEditor>()
+//                    .Exclude<NumberInputDataEditor>()
+//                    .Exclude<RadioButtonListDataEditor>()
+//                    .Exclude<TextInputDataEditor>()
+//                    .Exclude<TogglesDataEditor>()
+//            ;
 
-            composition
-                .PropertyValueConverters()
-                    .Remove<CascadingDropdownListValueConverter>()
-                    .Remove<CheckboxValueConverter>()
-                    .Remove<CheckboxListValueConverter>()
-                    .Remove<CodeEditorValueConverter>()
-                    .Remove<ConfigurationEditorValueConverter>()
-                    .Remove<ContentBlocksValueConverter>()
-                    .Remove<DataTableValueConverter>()
-                    .Remove<DropdownListValueConverter>()
-                    .Remove<ItemPickerValueConverter>()
-                    .Remove<MacroPickerValueConverter>()
-                    .Remove<NumberInputValueConverter>()
-                    .Remove<RadioButtonListValueConverter>()
-            ;
-#endif
+//            composition
+//                .PropertyValueConverters()
+//                    .Remove<CascadingDropdownListValueConverter>()
+//                    .Remove<CheckboxValueConverter>()
+//                    .Remove<CheckboxListValueConverter>()
+//                    .Remove<CodeEditorValueConverter>()
+//                    .Remove<ConfigurationEditorValueConverter>()
+//                    .Remove<ContentBlocksValueConverter>()
+//                    .Remove<DataTableValueConverter>()
+//                    .Remove<DropdownListValueConverter>()
+//                    .Remove<ItemPickerValueConverter>()
+//                    .Remove<MacroPickerValueConverter>()
+//                    .Remove<NumberInputValueConverter>()
+//                    .Remove<RadioButtonListValueConverter>()
+//            ;
+//#endif
         }
     }
 }
