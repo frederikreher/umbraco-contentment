@@ -6,5 +6,11 @@
     </creator>
     <area alias="contentment">
         <key alias="name">Contentment</key>
+
+        <key alias="copyAllBlocks">Copy all blocks</key>
+        <key alias="editRawValue">Edit raw value</key>
+
+        <key alias="copyContentBlock">Copy content block</key>
+        <key alias="createContentTemplate">Create content template...</key>
     </area>
 </language>

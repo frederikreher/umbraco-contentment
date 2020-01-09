@@ -14,7 +14,7 @@ using Umbraco.Core.PropertyEditors;
 
 namespace Umbraco.Community.Contentment.DataEditors
 {
-    internal sealed class SqlDataListSource : IDataListSource
+    public sealed class SqlDataListSource : IDataListSource
     {
         public string Name => "SQL Data";
 
@@ -24,6 +24,7 @@ namespace Umbraco.Community.Contentment.DataEditors
 
         public Dictionary<string, object> DefaultValues => new Dictionary<string, object>
         {
+            { QueryConfigurationField.Query, $"SELECT\r\n\t[text],\r\n\t[uniqueId]\r\nFROM\r\n\t[umbracoNode]\r\nWHERE\r\n\t[nodeObjectType] = '{Core.Constants.ObjectTypes.Strings.Document}'\r\n\tAND\r\n\t[level] = 1\r\nORDER BY\r\n\t[sortOrder] ASC\r\n;" },
             { ConnectionStringConfigurationField.ConnectionString, Core.Constants.System.UmbracoConnectionName }
         };
 

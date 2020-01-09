@@ -16,13 +16,9 @@ using Umbraco.Core.PropertyEditors;
 namespace Umbraco.Community.Contentment.DataEditors
 {
     [HideFromTypeFinder]
-    internal sealed class TextDelimitedDataListSource : IDataListSource
+    public sealed class TextDelimitedDataListSource : IDataListSource
     {
         private readonly ILogger _logger;
-
-        public TextDelimitedDataListSource()
-            : this(Current.Logger)
-        { }
 
         public TextDelimitedDataListSource(ILogger logger)
         {

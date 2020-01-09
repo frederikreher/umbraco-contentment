@@ -273,39 +273,50 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.8.2.0\lib\net472\Umbraco.Core.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.8.4.0\lib\net472\Umbraco.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Umbraco.Examine, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.2.0\lib\net472\Umbraco.Examine.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.4.0\lib\net472\Umbraco.Examine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Umbraco.Web, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.2.0\lib\net472\Umbraco.Web.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.4.0\lib\net472\Umbraco.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Umbraco.Web.UI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.2.0\lib\net472\Umbraco.Web.UI.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.4.0\lib\net472\Umbraco.Web.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composing\ContentmentBootComposer.cs" />
+    <Compile Include="Composing\ContentmentCompositionExtensions.cs" />
     <Compile Include="Configuration\ContentmentVersion.cs" />
+    <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorUtility.cs" />
     <Compile Include="DataEditors\ContentBlocks\ContentBlocksDisplayModeConfigurationField.cs" />
     <Compile Include="DataEditors\ContentBlocks\ContentBlocksTypeConfiguration.cs" />
+    <Compile Include="Composing\ContentmentListItemCollectionBuilder.cs" />
     <Compile Include="DataEditors\DataList\DataSources\TextDelimitedDataListSource.cs" />
+    <Compile Include="DataEditors\NumberInput\NumberInputValueConverter.cs" />
+    <Compile Include="DataEditors\NumberInput\NumberInputDataEditor.cs" />
+    <Compile Include="DataEditors\TextInput\PrependIconConfigurationField.cs" />
+    <Compile Include="DataEditors\TextInput\AppendIconConfigurationField.cs" />
+    <Compile Include="DataEditors\TextInput\PlaceholderTextConfigurationField.cs" />
+    <Compile Include="DataEditors\TextInput\AutocompleteConfigurationField.cs" />
+    <Compile Include="DataEditors\TextInput\MaxCharsConfigurationField.cs" />
     <Compile Include="DataEditors\TextInput\TextInputDataListEditor.cs" />
     <Compile Include="DataEditors\_\ConfigurationFields\HtmlAttributesConfigurationField.cs" />
-    <Compile Include="Experience\DataTypeTreeCopyMenuItemComponent.cs" />
     <Compile Include="Experience\DisablePreviewComponent.cs" />
     <Compile Include="Experience\HidePropertyLabelComponent.cs" />
     <Compile Include="Experience\MarkdownPropertyDescriptionComponent.cs" />
     <Compile Include="Composing\ContentmentComponent.cs" />
-    <Compile Include="Composing\ContentmentComposer.cs" />
+    <Compile Include="Composing\ContentmentRunComposer.cs" />
     <Compile Include="Migrations\Install\RegisterUmbracoPackageEntry.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataEditors\TextInput\TextInputConfigurationEditor.cs" />
     <Compile Include="DataEditors\TextInput\TextInputDataEditor.cs" />
+    <Compile Include="DataEditors\DataList\DataSources\JsonDataListSource.cs" />
     <Compile Include="DataEditors\Bytes\BytesConfigurationEditor.cs" />
     <Compile Include="DataEditors\Bytes\BytesDataEditor.cs" />
     <Compile Include="DataEditors\Bytes\BytesValueConverter.cs" />
@@ -329,7 +340,6 @@
     <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorConfigurationEditor.cs" />
     <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorDataEditor.cs" />
     <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorModel.cs" />
-    <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorService.cs" />
     <Compile Include="DataEditors\ConfigurationEditor\ConfigurationEditorValueConverter.cs" />
     <Compile Include="DataEditors\ConfigurationEditor\IConfigurationEditorItem.cs" />
     <Compile Include="DataEditors\ConfigurationEditor\OverlaySizeConfigurationField.cs" />
@@ -411,8 +421,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\ConfigurationFieldJsonSerializerSettings.cs" />
     <Compile Include="Trees\ContentmentTreeController.cs" />
-    <Compile Include="Trees\DataTypeCopy\DataTypeCopyApiController.cs" />
-    <Compile Include="Core\Services\DataTypeServiceExtensions.cs" />
     <Compile Include="Web\Controllers\EnumDataListSourceApiController.cs" />
     <Compile Include="Web\PublishedCache\DetachedPublishedElement.cs" />
     <Compile Include="Web\PublishedCache\DetachedPublishedProperty.cs" />
@@ -435,6 +443,8 @@
     <Content Include="DataEditors\Checkbox\checkbox.css" />
     <Content Include="DataEditors\Checkbox\checkbox.html" />
     <Content Include="DataEditors\Checkbox\checkbox.js" />
+    <Content Include="DataEditors\ConfigurationEditor\configuration-editor.inline.html" />
+    <Content Include="DataEditors\ConfigurationEditor\configuration-editor.inline.js" />
     <Content Include="DataEditors\CodeEditor\code-editor.html" />
     <Content Include="DataEditors\CodeEditor\code-editor.js" />
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.css" />
@@ -442,6 +452,7 @@
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.js" />
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.overlay.html" />
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.overlay.js" />
+    <Content Include="DataEditors\ContentBlocks\content-blocks.blueprint.html" />
     <Content Include="DataEditors\DataTable\data-table.html" />
     <Content Include="DataEditors\DataTable\data-table.js" />
     <Content Include="DataEditors\DropdownList\dropdown-list.html" />
@@ -452,6 +463,7 @@
     <Content Include="DataEditors\ContentBlocks\content-blocks.overlay.html" />
     <Content Include="DataEditors\ContentBlocks\content-blocks.overlay.js" />
     <Content Include="DataEditors\ContentBlocks\content-blocks.css" />
+    <Content Include="DataEditors\NumberInput\number-input.html" />
     <Content Include="DataEditors\TextInput\text-input.css" />
     <Content Include="DataEditors\TextInput\text-input.html" />
     <Content Include="DataEditors\TextInput\text-input.js" />
@@ -474,13 +486,11 @@
     <Content Include="DataEditors\Toggles\toggles.html" />
     <Content Include="DataEditors\Toggles\toggles.js" />
     <Content Include="DataEditors\_\readonly-node-preview.html" />
-    <Content Include="DataEditors\_\_dev-mode.html" />
+    <Content Include="DataEditors\_\_property-actions.js" />
     <Content Include="DataEditors\_\_dev-mode.js" />
     <Content Include="DataEditors\_\_directives.js" />
     <Content Include="Web\UI\App_Plugins\Contentment\editors\_empty.html" />
     <Content Include="DataEditors\_\_json-editor.html" />
-    <Content Include="Trees\DataTypeCopy\data-type-copy.html" />
-    <Content Include="Trees\DataTypeCopy\data-type-copy.js" />
     <Content Include="Web\UI\App_Plugins\Contentment\backoffice\contentment\index.html" />
     <Content Include="Web\UI\App_Plugins\Contentment\contentment.css" />
     <Content Include="Web\UI\App_Plugins\Contentment\contentment.js" />

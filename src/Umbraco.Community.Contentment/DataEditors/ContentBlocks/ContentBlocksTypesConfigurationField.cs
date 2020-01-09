@@ -18,15 +18,17 @@ namespace Umbraco.Community.Contentment.DataEditors
 
         public ContentBlocksTypesConfigurationField(
             IEnumerable<IContentType> elementTypes,
-            ConfigurationEditorService configurationEditorService)
+            ConfigurationEditorUtility utility)
         {
+            var fields = utility.GetConfigurationFields(typeof(ContentBlocksTypeConfiguration));
+
             var items = elementTypes
                 .OrderBy(x => x.Name)
                 .Select(x => new ConfigurationEditorModel
                 {
                     Type = x.Key.ToString(),
                     Name = x.Name,
-                    Description = x.Alias,
+                    Description = string.IsNullOrWhiteSpace(x.Description) == false ? x.Description : x.Alias,
                     Icon = x.Icon,
                     DefaultValues = new Dictionary<string, object>
                     {
@@ -37,9 +39,9 @@ namespace Umbraco.Community.Contentment.DataEditors
                                 Icon = x.Icon
                             }
                         },
-                        { "nameTemplate", $"{x.Name} {{{{ $index + 1 }}}}" },
+                        { "nameTemplate", $"{x.Name} {{{{ $index }}}}" },
                     },
-                    Fields = configurationEditorService.GetConfigurationFields(typeof(ContentBlocksTypeConfiguration))
+                    Fields = fields
                 });
 
             Key = ContentBlockTypes;

@@ -9,15 +9,21 @@ using System.Linq;
 using System.Reflection;
 using Umbraco.Community.Contentment.Web.Controllers;
 using Umbraco.Core;
-using Umbraco.Core.Composing;
 using Umbraco.Core.IO;
 using Umbraco.Core.Logging;
 using Umbraco.Core.PropertyEditors;
 
 namespace Umbraco.Community.Contentment.DataEditors
 {
-    internal sealed class EnumDataListSource : IDataListSource
+    public sealed class EnumDataListSource : IDataListSource
     {
+        private readonly ILogger _logger;
+
+        public EnumDataListSource(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public string Name => ".NET Enumeration";
 
         public string Description => "Select an enumeration from a .NET assembly as the data source.";
@@ -40,12 +46,12 @@ namespace Umbraco.Community.Contentment.DataEditors
                 return items;
 
             var assembly = default(Assembly);
-            try { assembly = Assembly.Load(EnumType[0]); } catch (Exception ex) { Current.Logger.Error<EnumDataListSource>(ex); }
+            try { assembly = Assembly.Load(EnumType[0]); } catch (Exception ex) { _logger.Error<EnumDataListSource>(ex); }
             if (assembly == null)
                 return items;
 
             var enumType = default(Type);
-            try { enumType = assembly.GetType(EnumType[1]); } catch (Exception ex) { Current.Logger.Error<EnumDataListSource>(ex); }
+            try { enumType = assembly.GetType(EnumType[1]); } catch (Exception ex) { _logger.Error<EnumDataListSource>(ex); }
             if (enumType == null || enumType.IsEnum == false)
                 return items;
 
